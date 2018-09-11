@@ -4,7 +4,7 @@
    Plugin URI: https://github.com/Watson-Creative/Gravity-Forms-Fusion-Module
    GitHub Plugin URI: https://github.com/Watson-Creative/Gravity-Forms-Fusion-Module
    description: Add module to Fusion Builder to create an animated button designed by Anna Gray
-   Version: 1.0.0
+   Version: 1.0.1
    Author: Alex Tryon
    Author URI: http://www.alextryonpdx.com
    License: GPL2
