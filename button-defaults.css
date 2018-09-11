@@ -5,6 +5,9 @@
     transition: all .7s cubic-bezier(.165,.84,.44,1);
     pointer-events: none;
 }
+.btn-txt * {
+    color: inherit !important;
+}
 .btn-wrap
 {
     position: relative;

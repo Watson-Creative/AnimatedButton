@@ -21,10 +21,10 @@ function fusion_element_animated_button() {
         'shortcode'       => 'wc_animated_button',
         'params'          => array(
                 array(
-                  'type'        => 'textfield',
+                  'type'        => 'tinymce',
                   'heading'     => esc_attr__( 'Link Text', 'fusion-builder' ),
                   'description' => esc_attr__( 'Enter link Text', 'fusion-builder' ),
-                  'param_name'  => 'link_text',
+                  'param_name'  => 'element_content',
                   'value'       => '',
                   'placeholder' => true),
                 array(
@@ -119,17 +119,16 @@ function fusion_element_animated_button() {
                   'value'       => '',),
                 array(
                   'type'        => 'colorpickeralpha',
-                  'heading'     => esc_attr__( 'Background Hover Color', 'fusion-builder' ),
-                  'description' => esc_attr__( 'Select background color and opacity (hover state)', 'fusion-builder' ),
-                  'param_name'  => 'background_color_hover',
-                  'value'       => '',),
-                array(
-                  'type'        => 'colorpickeralpha',
                   'heading'     => esc_attr__( 'Border Hover Color', 'fusion-builder' ),
                   'description' => esc_attr__( 'Select border color and opacity (hover state)', 'fusion-builder' ),
                   'param_name'  => 'border_hover_color',
                   'value'       => '',),
-                
+                array(
+                  'type'        => 'colorpickeralpha',
+                  'heading'     => esc_attr__( 'Background Hover Color', 'fusion-builder' ),
+                  'description' => esc_attr__( 'Select background color and opacity (hover state)', 'fusion-builder' ),
+                  'param_name'  => 'background_color_hover',
+                  'value'       => '',)
         ),
     ) );
 }
@@ -172,7 +171,7 @@ function wcab_animated_button( $atts, $content = null ){
 
     $id = wcab_random_password();
 
-    $block = "<div id='" . $id . "' class='btn-wrap'><a class='btn btn-red btn-fx _tb' style='opacity: 1;' href='#' data-toggle='modal' data-target='.fusion-modal.watch-now'><div class='btn-over btn-over-red btn-over-fx'></div><div class='btn-over btn-over-red btn-over-fx'></div> <span class='btn-txt btn-txt-dark'>" .$a['link_text']. "</span> </a></div>";
+    $block = "<div id='" . $id . "' class='btn-wrap'><a class='btn btn-red btn-fx _tb' style='opacity: 1;' href='". $a['link_url'] ."' ><div class='btn-over btn-over-red btn-over-fx'></div><div class='btn-over btn-over-red btn-over-fx'></div> <span class='btn-txt btn-txt-dark'>" .$content. "</span> </a></div>";
     $style = "<style>";
     
     if($a['link_color'] !== ''){
@@ -206,7 +205,7 @@ function wcab_animated_button( $atts, $content = null ){
       $style .= "#" . $id . " .btn{  font-size: " .$a['font_size']. "px;}";
     }
     if($a['border_hover_color'] !== ''){
-      $style .= "#" . $id . " .btn{  border-color: " .$a['border_hover_color']. "px;}";
+      $style .= "#" . $id . " .btn:hover{  border-color: " .$a['border_hover_color']. ";}";
     }
 
     $style .= "</style>";
